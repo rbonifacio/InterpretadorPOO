@@ -5,43 +5,75 @@ import br.unb.cic.poolanguage.IfThenElse;
 import br.unb.cic.poolanguage.ValorBooleano;
 import br.unb.cic.poolanguage.ValorInteiro;
 
-public class PrettyPrinter extends Visitor {
+public class PrettyPrinter implements Visitor {
 
+	private int indentacao = 0;
+	
+	public void incrementa() {
+		indentacao++;
+	}
+	
+	public void decrementa() {
+		indentacao--;
+	}
+	
 	@Override
 	public void visitar(ValorBooleano v) {
 		if(v.getValor()) {
-			System.out.println("Verdadeiro");
+			imprimeString("Verdadeiro");
 		}
 		else {
-			System.out.println("Falso");
+			imprimeString("Falso");
 		}
 	}
 
 	@Override
 	public void visitar(ValorInteiro v) {
-		System.out.println(v.getValor());
+		imprimeString(v.getValor().toString());
 	}
 
 	@Override
 	public void visitar(ExpressaoSoma soma) {
-		System.out.print("("); 
-		this.visitar(soma.getLhs());
-		System.out.println(" + ");
-		this.visitar(soma.getRhs());
-		System.out.println(")");
+		imprimeString("("); 
+		soma.getLhs().aceitar(this);
+		imprimeString(" + ");
+		soma.getRhs().aceitar(this);
+		imprimeString(")");
 	}
 
 	@Override
 	public void visitar(IfThenElse ite) {
-		System.out.println("if(");
-		visitar(ite.getCondicao());
-		System.out.println(")");
-		System.out.println("then {");
-		visitar(ite.getClausulaThen());
-		System.out.println("}");
-		System.out.println("else{");
-		visitar(ite.getClausulaElse());
-		System.out.println("}");
+		imprimeString("if(");
+		ite.getCondicao().aceitar(this);
+		imprimeString(")");
+		incrementa();
+		quebraLinha();
+		imprimeString("then {");
+		incrementa();
+		quebraLinha();
+		ite.getClausulaThen().aceitar(this);
+		decrementa();
+		quebraLinha();
+		imprimeString("}");
+		imprimeString("else{");
+		incrementa();
+		quebraLinha();
+		ite.getClausulaElse().aceitar(this);
+		decrementa();
+		quebraLinha();
+		imprimeString("}");
+		decrementa();
+		quebraLinha();}
+	
+	public void imprimeString(String str) {
+		for(int i = 0; i < indentacao; i++) {
+			System.out.print(" ");
+		}
+		System.out.print(str);
+	}
+	
+	public void quebraLinha() {
+		System.out.println("");
 	}
 
 }

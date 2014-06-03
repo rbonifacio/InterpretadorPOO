@@ -1,5 +1,7 @@
 package br.unb.cic.poolanguage;
 
+import br.unb.cic.poolanguage.visitors.Visitor;
+
 public class ExpressaoSoma extends ExpressaoBinaria {
 
 	public ExpressaoSoma(Expressao lhs, Expressao rhs) {
@@ -31,5 +33,12 @@ public class ExpressaoSoma extends ExpressaoBinaria {
 		}
 		//TODO: implementar uma checagem de tipos adequada
 		throw new RuntimeException("Erro de tipos!!!!");
+	}
+
+
+
+	@Override
+	public void aceitar(Visitor v) {
+		v.visitar(this);
 	}
 }

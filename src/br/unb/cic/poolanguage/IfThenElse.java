@@ -1,5 +1,7 @@
 package br.unb.cic.poolanguage;
 
+import br.unb.cic.poolanguage.visitors.Visitor;
+
 public class IfThenElse implements Expressao {
 
 	private Expressao condicao;
@@ -59,6 +61,12 @@ public class IfThenElse implements Expressao {
 
 	public Expressao getClausulaElse() {
 		return clausulaElse;
+	}
+
+
+	@Override
+	public void aceitar(Visitor v) {
+		v.visitar(this);	
 	}
 	
 	
