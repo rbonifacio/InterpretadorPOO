@@ -6,19 +6,30 @@ public class ExpressaoSoma extends ExpressaoBinaria {
 		super(lhs, rhs);
 	}
 
-	@Override
-	public Valor avaliar() {
-		Valor v1 = lhs.avaliar();
-		Valor v2 = rhs.avaliar();
+	
+
+	public Tipo tipo() {
+		if(verificarTipo()) {
+			return Tipo.Inteiro;
+		}
+		return Tipo.Inconsistente;
+	}
+	
+	public boolean verificarTipo() {
+		Valor valorLHS = lhs.avaliar();
+		Valor valorRHS = rhs.avaliar();
 		
-		if(v1 instanceof ValorInteiro && v2 instanceof ValorInteiro) {
-			ValorInteiro valor1 = (ValorInteiro) v1;
-			ValorInteiro valor2 = (ValorInteiro) v2;
+		return (valorLHS instanceof ValorInteiro) && (valorRHS instanceof ValorInteiro);
+	}
+	
+	public Valor avaliar() {
+		if(verificarTipo()) {
+			ValorInteiro valor1 = (ValorInteiro) lhs.avaliar();
+			ValorInteiro valor2 = (ValorInteiro) rhs.avaliar();
 			
 			return new ValorInteiro(valor1.getValor() + valor2.getValor());
 		}
 		//TODO: implementar uma checagem de tipos adequada
 		throw new RuntimeException("Erro de tipos!!!!");
 	}
-
 }

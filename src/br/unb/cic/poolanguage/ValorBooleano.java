@@ -6,4 +6,9 @@ public class ValorBooleano extends ValorParametrizado<Boolean>{
 		super(valor);
 	}
 
+	@Override
+	public Tipo tipo() {
+		return Tipo.Booleano;
+	}
+
 }

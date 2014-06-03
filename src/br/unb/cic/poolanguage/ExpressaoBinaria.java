@@ -9,4 +9,14 @@ public abstract class ExpressaoBinaria implements Expressao {
 		this.lhs = lhs;
 		this.rhs = rhs;
 	}
+
+	public Expressao getLhs() {
+		return lhs;
+	}
+
+	public Expressao getRhs() {
+		return rhs;
+	}
+	
+	
 }

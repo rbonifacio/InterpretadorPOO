@@ -6,4 +6,8 @@ public class ValorInteiro extends ValorParametrizado<Integer>{
 		super(valor);
 	}
 
+	@Override
+	public Tipo tipo() {
+		return Tipo.Inteiro;
+	}
 }

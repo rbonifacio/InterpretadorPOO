@@ -7,10 +7,15 @@ package br.unb.cic.poolanguage;
  * 
  * @author rbonifacio
  */
-public class Valor implements Expressao {
+public abstract class Valor implements Expressao {
 	
 	public Valor avaliar() {
 		return this;
+	}
+	
+	@Override
+	public boolean verificarTipo() {
+		return true;
 	}
 	
 }
