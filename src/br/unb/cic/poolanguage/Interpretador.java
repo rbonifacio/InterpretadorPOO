@@ -19,9 +19,11 @@ public class Interpretador {
 	
 	private HashMap<String, DeclaracaoFuncao> declaracoes;
 	
-	public Valor avaliar(Expressao exp) {
-		return exp.avaliar();
-	}
+//	Denis estava certo, esse metodo eh pouco util
+//  com a implementacao atual
+//	public Valor avaliar(Expressao exp) {
+//		return exp.avaliar();
+//	}
 	
 	public void addDeclaracao(DeclaracaoFuncao funcao) {
 		declaracoes.put(funcao.getNome(), funcao);

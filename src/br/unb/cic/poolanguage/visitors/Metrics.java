@@ -1,5 +1,7 @@
 package br.unb.cic.poolanguage.visitors;
 
+import br.unb.cic.poolanguage.AplicacaoFuncao;
+import br.unb.cic.poolanguage.ExpRef;
 import br.unb.cic.poolanguage.ExpressaoSoma;
 import br.unb.cic.poolanguage.IfThenElse;
 import br.unb.cic.poolanguage.ValorBooleano;
@@ -40,6 +42,16 @@ public class Metrics implements Visitor{
 	
 	public int getNosVisitados() {
 		return nosVisitados;
+	}
+
+	@Override
+	public void visitar(ExpRef ref) {
+		throw new RuntimeException("not implemented yet");
+	}
+
+	@Override
+	public void visitar(AplicacaoFuncao app) {
+		throw new RuntimeException("not implemented yet");
 	}
 
 	

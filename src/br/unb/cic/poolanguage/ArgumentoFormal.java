@@ -1,7 +1,14 @@
 package br.unb.cic.poolanguage;
 
+/**
+ * Representa um argumento formal, usado na 
+ * declaracao de funcoes. Todo argumento 
+ * envolve um nome e um tipo. Nossa linguagem 
+ * eh muito disciplinada em relacao a tipos. 
+ * 
+ * @author rbonifacio
+ */
 public class ArgumentoFormal {
-
 	private String nome;
 	private Tipo tipo;
 	
@@ -17,8 +24,4 @@ public class ArgumentoFormal {
 	public Tipo getTipo() {
 		return tipo;
 	}
-	
-	
-	
-	
 }
