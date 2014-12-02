@@ -28,7 +28,7 @@ public class IfThenElse implements Expressao {
 			}
 		}
 		else {
-			throw new RuntimeException("Condicao precisa ser um valor booleano");
+			throw new RuntimeException("Condicao precisa ser um valor booleano e os tipos then e else correspondentes");
 		}
 	}
 

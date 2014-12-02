@@ -44,6 +44,7 @@ public class PrettyPrinter implements Visitor {
 	@Override
 	public void visitar(IfThenElse ite) {
 		imprimeString("if(");
+		
 		ite.getCondicao().aceitar(this);
 		imprimeString(")");
 		incrementa();
