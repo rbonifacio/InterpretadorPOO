@@ -6,6 +6,14 @@ import br.unb.cic.poolanguage.visitors.Visitor;
 
 public class AplicacaoFuncao implements Expressao {
 
+	public String getNome() {
+		return nome;
+	}
+
+	public List<Expressao> getArgumentos() {
+		return argumentos;
+	}
+
 	private String nome; 
 	private List<Expressao> argumentos; 
 	

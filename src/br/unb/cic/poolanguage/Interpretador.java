@@ -32,4 +32,8 @@ public class Interpretador {
 	public DeclaracaoFuncao obtemDeclaracaoFuncao(String nome) {
 		return declaracoes.get(nome);
 	}
+	
+	public void reinicializa() {
+		declaracoes.clear();
+	}
 }

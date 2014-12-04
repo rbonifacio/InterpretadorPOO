@@ -41,7 +41,7 @@ public class AmbienteAvaliacao {
 	}
 	
 	public void defineVariavel(String nome, Expressao exp) {
-		if(ambiente.peek() == null) {
+		if(ambiente.empty()) {
 			empilha();
 		}
 		ambiente.peek().put(nome, exp);

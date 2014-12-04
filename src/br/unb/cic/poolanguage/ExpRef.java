@@ -29,6 +29,10 @@ public class ExpRef implements Expressao {
 
 	private String nome; 
 	
+	public String getNome() {
+		return nome;
+	}
+
 	public ExpRef(String nome) {
 		this.nome = nome;
 	}

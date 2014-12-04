@@ -2,12 +2,13 @@ package br.unb.cic.poolanguage.visitors;
 
 import br.unb.cic.poolanguage.AplicacaoFuncao;
 import br.unb.cic.poolanguage.ExpRef;
+import br.unb.cic.poolanguage.Expressao;
 import br.unb.cic.poolanguage.ExpressaoSoma;
 import br.unb.cic.poolanguage.IfThenElse;
 import br.unb.cic.poolanguage.ValorBooleano;
 import br.unb.cic.poolanguage.ValorInteiro;
 
-public class PrettyPrinter implements Visitor {
+public class PrettyPrinter extends VisitorAdapter {
 
 	private int indentacao = 0;
 	
@@ -81,12 +82,14 @@ public class PrettyPrinter implements Visitor {
 
 	@Override
 	public void visitar(ExpRef ref) {
-		throw new RuntimeException("not implemented yet");
+		System.out.println(ref.getNome());
 	}
 
 	@Override
 	public void visitar(AplicacaoFuncao app) {
-		throw new RuntimeException("not implemented yet");
+		System.out.print(app.getNome());
+		for(Expressao e: app.getArgumentos()) {
+			e.aceitar(this);
+		}
 	}
-
 }
